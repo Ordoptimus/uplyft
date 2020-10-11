@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "21627540650",
+    "firebase_url": "https://imagescaler-7c459.firebaseio.com",
+    "project_id": "imagescaler-7c459",
+    "storage_bucket": "imagescaler-7c459.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21627540650:android:c76e2c4502504449f66cd3",
+        "android_client_info": {
+          "package_name": "com.nikita.uplyft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21627540650-hch8888in481811mc00o5musrabshaas.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA39P89FRMEe-NPEh28g2tX3RGnYcYydF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21627540650-hch8888in481811mc00o5musrabshaas.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
