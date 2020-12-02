@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ja.burhanrashid52.photoeditor.test" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="29" />
+
+    <instrumentation
+        android:name="android.support.test.runner.AndroidJUnitRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for ja.burhanrashid52.photoeditor.test"
+        android:targetPackage="ja.burhanrashid52.photoeditor.test" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true" >
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>

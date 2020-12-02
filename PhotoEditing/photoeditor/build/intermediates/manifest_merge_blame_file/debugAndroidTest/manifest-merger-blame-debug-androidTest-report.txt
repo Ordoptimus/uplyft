@@ -1,0 +1,42 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ja.burhanrashid52.photoeditor.test" >
+4
+5    <uses-sdk
+5-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:5:5-74
+6        android:minSdkVersion="14"
+6-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:5:15-41
+7        android:targetSdkVersion="29" />
+7-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:5:42-71
+8
+9    <instrumentation
+9-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:11:5-15:84
+10        android:name="android.support.test.runner.AndroidJUnitRunner"
+10-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:11:22-83
+11        android:functionalTest="false"
+11-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:14:22-52
+12        android:handleProfiling="false"
+12-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:13:22-53
+13        android:label="Tests for ja.burhanrashid52.photoeditor.test"
+13-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:15:22-82
+14        android:targetPackage="ja.burhanrashid52.photoeditor.test" />
+14-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:12:22-80
+15
+16    <application
+16-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:7:5-9:19
+17        android:allowBackup="true"
+17-->[__tested_artifact__::photoeditor] C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.1.0] C:\Users\Deepika\.gradle\caches\transforms-2\files-2.1\7f8adf4a432862f046793f79ab4517c6\core-1.1.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+19-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:7:18-43
+20        android:label="@string/app_name"
+20-->[__tested_artifact__::photoeditor] C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-41
+21        android:supportsRtl="true" >
+21-->[__tested_artifact__::photoeditor] C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-35
+22        <uses-library android:name="android.test.runner" />
+22-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:8:9-60
+22-->C:\Users\Deepika\AndroidStudioProjects\PhotoEditor-master\photoeditor\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5848052908896548666.xml:8:23-57
+23    </application>
+24
+25</manifest>
