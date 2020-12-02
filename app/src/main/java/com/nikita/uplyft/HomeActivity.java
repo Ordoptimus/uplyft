@@ -47,6 +47,12 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        selectedImage.buildDrawingCache();
+        Bitmap bitmap = selectedImage.getDrawingCache();
+
+        Intent cacheintent = new Intent(this, Feature.class);
+        cacheintent.putExtra("ImageBitmap", bitmap);
+
         selectedImage = findViewById(R.id.displayImageView);
         galleryBtn = findViewById(R.id.galleryBtn);
         cameraBtn = findViewById(R.id.cameraBtn);
@@ -205,8 +211,8 @@ public class HomeActivity extends AppCompatActivity {
                 selectedImage.buildDrawingCache();
                 Bitmap bitmap = selectedImage.getDrawingCache();
 
-                Intent intent = new Intent(this, Feature.class);
-                intent.putExtra("ImageBitmap", bitmap);
+                Intent cacheintent = new Intent(this, Feature.class);
+                cacheintent.putExtra("ImageBitmap", bitmap);
             }
 
         }
