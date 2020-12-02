@@ -27,10 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Upload/Capture Photo"
-        android:layout_marginTop="20dp"
         android:textColor="#ffffff"
-        android:layout_marginLeft="80dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="20dp" />
 
 
 
@@ -65,4 +65,26 @@
         app:layout_constraintTop_toTopOf="@+id/cameraBtn"
         android:layout_marginLeft="16dp"
         android:background="@drawable/circular_background_button"/>
+
+
+    <Button
+        android:id="@+id/enhancebutton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginBottom="89dp"
+        android:background="@drawable/button_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Enhance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/galleryBtn"
+
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="8dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

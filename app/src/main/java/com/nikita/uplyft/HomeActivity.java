@@ -38,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton galleryBtn;
     ImageButton cameraBtn;
     String currentPhotoPath;
+    Button enhancebutton;
 
 
     @Override
@@ -48,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         selectedImage = findViewById(R.id.displayImageView);
         galleryBtn = findViewById(R.id.galleryBtn);
         cameraBtn = findViewById(R.id.cameraBtn);
-
+        enhancebutton = findViewById(R.id.enhancebutton);
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +64,17 @@ public class HomeActivity extends AppCompatActivity {
                 startActivityForResult(gallery, GALLERY_REQUEST_CODE);
             }
         });
+        enhancebutton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(HomeActivity.this, "Select an image", Toast.LENGTH_SHORT).show();
+            }
+
+
+        });
+
+
 
     }
 
@@ -98,6 +110,19 @@ public class HomeActivity extends AppCompatActivity {
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 Uri contentUri = Uri.fromFile(f);
+                enhancebutton.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+
+                            Intent intEnhance = new Intent(HomeActivity.this, Feature.class);
+                            startActivity(intEnhance);
+
+
+                    }
+
+
+                });
+
                 mediaScanIntent.setData(contentUri);
                 this.sendBroadcast(mediaScanIntent);
             }
@@ -106,7 +131,28 @@ public class HomeActivity extends AppCompatActivity {
 
         if (requestCode == GALLERY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                Uri contentUri = data.getData();
+                final Uri contentUri = data.getData();
+
+                    enhancebutton.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+
+                                    Intent intEnhance = new Intent(HomeActivity.this, Feature.class);
+                                    startActivity(intEnhance);
+
+
+                        }
+
+
+                    });
+
+
+
+
+
+
+
+
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                 String imageFileName = "JPEG_" + timeStamp + "." + getFileExt(contentUri);
                 Log.d("tag", "onActivityResult: Gallery Image Uri:  " + imageFileName);
@@ -164,4 +210,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }
