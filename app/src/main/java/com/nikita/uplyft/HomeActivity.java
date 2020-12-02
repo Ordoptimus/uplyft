@@ -140,17 +140,9 @@ public class HomeActivity extends AppCompatActivity {
                                     Intent intEnhance = new Intent(HomeActivity.this, Feature.class);
                                     startActivity(intEnhance);
 
-
                         }
 
-
                     });
-
-
-
-
-
-
 
 
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
