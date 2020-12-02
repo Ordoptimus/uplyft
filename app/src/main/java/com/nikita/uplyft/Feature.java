@@ -57,14 +57,14 @@ public class Feature extends AppCompatActivity {
     private TextView selectedImageTextView;
     private Switch gpuSwitch;*/
 
-    Bitmap bitmap = (Bitmap) cacheintent.getParcelableExtra("ImageBitmap");
+    //Bitmap bitmap = (Bitmap) cacheintent.getParcelableExtra("ImageBitmap");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feature);
         superres_button = findViewById(R.id.superres_button);
-        selectedLRBitmap = bitmap;
+        //selectedLRBitmap = bitmap;
 
         superres_button.setOnClickListener(new View.OnClickListener() {
 
@@ -93,6 +93,7 @@ public class Feature extends AppCompatActivity {
                 }
 
                 /* the view parameters of the resulting image */
+               /*
                 final LinearLayout resultLayout = findViewById(R.id.result_layout);
                 final ImageView superResolutionImageView = findViewById(R.id.super_resolution_image);
                 final ImageView nativelyScaledImageView = findViewById(R.id.natively_scaled_image);
@@ -101,15 +102,19 @@ public class Feature extends AppCompatActivity {
                         findViewById(R.id.natively_scaled_image_tv);
                 final TextView logTextView = findViewById(R.id.log_view);
 
-                // Force refreshing the ImageView /* setting image view parameters from the superResRGB bitmap */
+                // Force refreshing the ImageView /* setting image view parameters from the superResRGB bitmap *
                 superResolutionImageView.setImageDrawable(null);
+                */
+
                 Bitmap srImgBitmap =
                         Bitmap.createBitmap(
                                 superResRGB, SR_IMAGE_WIDTH, SR_IMAGE_HEIGHT, Bitmap.Config.ARGB_8888);
+                /*
                 superResolutionImageView.setImageBitmap(srImgBitmap);
                 nativelyScaledImageView.setImageBitmap(selectedLRBitmap);
                 resultLayout.setVisibility(View.VISIBLE);
                 logTextView.setText("Inference time: " + processingTimeMs + "ms");
+                */
 
 
                 Intent intSuperRes = new Intent(Feature.this, Final_Uplyfted.class);
