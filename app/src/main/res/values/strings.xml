@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Uplyft</string>
+    <string name="enhancebutton">Enhance</string>
+    <string name="recolour_button">ReColourise</string>
+    <string name="superres_button">Super-Res</string>
 </resources>

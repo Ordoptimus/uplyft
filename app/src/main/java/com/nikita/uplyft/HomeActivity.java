@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -199,7 +200,15 @@ public class HomeActivity extends AppCompatActivity {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
+
+                /* creating image bitmap and storing in cache */
+                selectedImage.buildDrawingCache();
+                Bitmap bitmap = selectedImage.getDrawingCache();
+
+                Intent intent = new Intent(this, Feature.class);
+                intent.putExtra("ImageBitmap", bitmap);
             }
+
         }
     }
 

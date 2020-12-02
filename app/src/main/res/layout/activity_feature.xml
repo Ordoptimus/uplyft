@@ -19,12 +19,12 @@
         android:layout_marginBottom="559dp"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="ReColourise"
+        android:text="@string/recolour_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/supress_button"
+        android:id="@+id/superres_button"
         android:layout_width="250dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -33,7 +33,7 @@
         android:background="@drawable/button_bg"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Super-Res"
+        android:text="@string/superres_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
 
