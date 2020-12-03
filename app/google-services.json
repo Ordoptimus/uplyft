@@ -8,9 +8,38 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:21627540650:android:c76e2c4502504449f66cd3",
+        "mobilesdk_app_id": "1:21627540650:android:60bf45387c76efd9f66cd3",
         "android_client_info": {
-          "package_name": "com.nikita.uplyft"
+          "package_name": "org.tensorflow.lite.examples.superresolution"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21627540650-hch8888in481811mc00o5musrabshaas.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA39P89FRMEe-NPEh28g2tX3RGnYcYydF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21627540650-hch8888in481811mc00o5musrabshaas.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21627540650:android:6e79b72cd5ec9ae4f66cd3",
+        "android_client_info": {
+          "package_name": "org.tensorflow.lite.examples.superresolution"
         }
       },
       "oauth_client": [

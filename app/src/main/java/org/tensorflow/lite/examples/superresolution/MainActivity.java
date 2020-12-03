@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
   private MappedByteBuffer model;
   private long superResolutionNativeHandle = 0;
   private Bitmap selectedLRBitmap = null;
+  private Bitmap selbitmap = null;
   private boolean useGPU = false;
 
   private ImageView lowResImageView1;
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-            if (selectedLRBitmap == null) {
+            if (selbitmap == null) {
               Toast.makeText(
                       getApplicationContext(),
                       "Please choose one low resolution image",
@@ -198,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             int[] lowResRGB = new int[LR_IMAGE_HEIGHT * LR_IMAGE_WIDTH];
-            selectedLRBitmap.getPixels(
+            selbitmap.getPixels(                     //selectedImage's bitmap to be put
                 lowResRGB, 0, LR_IMAGE_WIDTH, 0, 0, LR_IMAGE_WIDTH, LR_IMAGE_HEIGHT);
 
             /* calling the super-res function and storing result in superResRGB */
@@ -224,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             Bitmap srImgBitmap =
                 Bitmap.createBitmap(
                     superResRGB, SR_IMAGE_WIDTH, SR_IMAGE_HEIGHT, Bitmap.Config.ARGB_8888);
-            superResolutionImageView.setImageBitmap(srImgBitmap);
+            selectedImage.setImageBitmap(srImgBitmap);
             nativelyScaledImageView.setImageBitmap(selectedLRBitmap);
             resultLayout.setVisibility(View.VISIBLE);
             logTextView.setText("Inference time: " + processingTimeMs + "ms");
@@ -359,11 +360,16 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
 
         /* creating image bitmap and storing in cache */
-        selectedImage.buildDrawingCache();
-        Bitmap bitmap = selectedImage.getDrawingCache();
+        /*selectedImage.buildDrawingCache();
+        selbitmap = selectedImage.getDrawingCache();
 
         Intent cacheintent = new Intent(this, Feature.class);
-        cacheintent.putExtra("ImageBitmap", bitmap);
+        cacheintent.putExtra("ImageBitmap", selbitmap);*/
+
+        ImageView imgView = (ImageView) findViewById(R.id.displayImageView);
+        imgView.setImageResource(R.drawable.store_image);
+        z.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());
       }
 
     }
