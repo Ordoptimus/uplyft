@@ -134,15 +134,18 @@ public class MainActivity extends AppCompatActivity {
 
     });  //edit end */
 
+    selectedImage.buildDrawingCache();
+    selbitmap = selectedImage.getDrawingCache();
+
     /* initialise button and 3 lr images */
     final Button superResolutionButton = findViewById(R.id.enhancebutton);  //edited
-    lowResImageView1 = findViewById(R.id.low_resolution_image_1);
-    lowResImageView2 = findViewById(R.id.low_resolution_image_2);
-    lowResImageView3 = findViewById(R.id.low_resolution_image_3);
-    selectedImageTextView = findViewById(R.id.chosen_image_tv);
-    gpuSwitch = findViewById(R.id.switch_use_gpu);
+    //lowResImageView1 = findViewById(R.id.low_resolution_image_1);
+    //lowResImageView2 = findViewById(R.id.low_resolution_image_2);
+    //lowResImageView3 = findViewById(R.id.low_resolution_image_3);
+    //selectedImageTextView = findViewById(R.id.chosen_image_tv);
+    //gpuSwitch = findViewById(R.id.switch_use_gpu);
 
-    ImageView[] lowResImageViews = {lowResImageView1, lowResImageView2, lowResImageView3};
+    //ImageView[] lowResImageViews = {lowResImageView1, lowResImageView2, lowResImageView3};
 
     /* create bitmaps of all 3 images */
     /*
@@ -185,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             /* GPU execution checks */
+            /*
             if (superResolutionNativeHandle == 0) {
                 superResolutionNativeHandle = initTFLiteInterpreter(gpuSwitch.isChecked());
             } else if (useGPU != gpuSwitch.isChecked()) {
@@ -197,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
               showToast("TFLite interpreter failed to create!");
               return;
             }
+             */
 
             int[] lowResRGB = new int[LR_IMAGE_HEIGHT * LR_IMAGE_WIDTH];
             selbitmap.getPixels(                     //selectedImage's bitmap to be put
@@ -213,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
             /* the view parameters of the resulting image */
             final LinearLayout resultLayout = findViewById(R.id.result_layout);
-            final ImageView superResolutionImageView = findViewById(R.id.super_resolution_image);
+            final ImageView superResolutionImageView = findViewById(R.id.displayImageView);
             final ImageView nativelyScaledImageView = findViewById(R.id.natively_scaled_image);
             final TextView superResolutionTextView = findViewById(R.id.super_resolution_tv);
             final TextView nativelyScaledImageTextView =
@@ -225,8 +230,8 @@ public class MainActivity extends AppCompatActivity {
             Bitmap srImgBitmap =
                 Bitmap.createBitmap(
                     superResRGB, SR_IMAGE_WIDTH, SR_IMAGE_HEIGHT, Bitmap.Config.ARGB_8888);
-            selectedImage.setImageBitmap(srImgBitmap);
-            nativelyScaledImageView.setImageBitmap(selectedLRBitmap);
+            superResolutionImageView.setImageBitmap(srImgBitmap);
+            //nativelyScaledImageView.setImageBitmap(selectedLRBitmap);
             resultLayout.setVisibility(View.VISIBLE);
             logTextView.setText("Inference time: " + processingTimeMs + "ms");
           }
@@ -282,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
 
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
+
       }
 
     }
@@ -312,6 +318,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    selectedImage.buildDrawingCache();
+    selbitmap = selectedImage.getDrawingCache();
 
   }
 
@@ -360,19 +368,27 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
 
         /* creating image bitmap and storing in cache */
-        /*selectedImage.buildDrawingCache();
+        selectedImage.buildDrawingCache();
         selbitmap = selectedImage.getDrawingCache();
 
+        /*
         Intent cacheintent = new Intent(this, Feature.class);
         cacheintent.putExtra("ImageBitmap", selbitmap);*/
 
+        /*
         ImageView imgView = (ImageView) findViewById(R.id.displayImageView);
         imgView.setImageResource(R.drawable.store_image);
-        z.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.large_icon);
+        notBuilder.setLargeIcon(largeIcon);
+
+         */
       }
 
     }
+
+    selectedImage.buildDrawingCache();
+    selbitmap = selectedImage.getDrawingCache();
+
   }  //edit ends
 
   @Override
