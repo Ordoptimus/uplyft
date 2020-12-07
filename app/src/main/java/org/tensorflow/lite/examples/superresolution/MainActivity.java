@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     }
      */
 
-    superResolutionButton.setOnClickListener(
+    enhancebutton.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                   .show();
               return;
             }
-            //Log.d("tag", "ABsolute Url of Image is " + selbitmap);
+            Log.d("tag", "Absolute path of Image bitmap is " + selbitmap);
 
             /* GPU execution checks */
             /*
@@ -351,6 +351,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Save a file: path for use with ACTION_VIEW intents
     currentPhotoPath = image.getAbsolutePath();
+    Log.d("tag", "Absolute file path of Image is " + currentPhotoPath);
     return image;
   }
 
