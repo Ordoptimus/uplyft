@@ -77,20 +77,12 @@ public class MainActivity extends AppCompatActivity {
   private static final int SR_IMAGE_HEIGHT = LR_IMAGE_HEIGHT * UPSCALE_FACTOR;
   private static final int SR_IMAGE_WIDTH = LR_IMAGE_WIDTH * UPSCALE_FACTOR;
   private static final String LR_IMG_1 = "lr-1.jpg";
-  private static final String LR_IMG_2 = "lr-2.jpg";
-  private static final String LR_IMG_3 = "lr-3.jpg";
 
   private MappedByteBuffer model;
   private long superResolutionNativeHandle = 0;
   private Bitmap selectedLRBitmap = null;
   private Bitmap selbitmap = null;
   private boolean useGPU = false;
-
-  private ImageView lowResImageView1;
-  private ImageView lowResImageView2;
-  private ImageView lowResImageView3;
-  private TextView selectedImageTextView;
-  private Switch gpuSwitch;
 
   public static final int CAMERA_PERM_CODE = 101;
   public static final int CAMERA_REQUEST_CODE = 102;
@@ -126,15 +118,6 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(gallery, GALLERY_REQUEST_CODE);
       }
     });
-    /*enhancebutton.setOnClickListener(new View.OnClickListener(){
-      @Override
-      public void onClick(View v) {
-
-        Toast.makeText(MainActivity.this, "Select an image", Toast.LENGTH_SHORT).show();
-      }
-
-
-    });  //edit end */
 
     selectedImage.buildDrawingCache();
     selbitmap = selectedImage.getDrawingCache();
@@ -142,39 +125,13 @@ public class MainActivity extends AppCompatActivity {
     /* initialise button and 3 lr images */
     final Button superResolutionButton = findViewById(R.id.enhancebutton);  //edited
     //lowResImageView1 = findViewById(R.id.low_resolution_image_1);
-    //lowResImageView2 = findViewById(R.id.low_resolution_image_2);
-    //lowResImageView3 = findViewById(R.id.low_resolution_image_3);
-    //selectedImageTextView = findViewById(R.id.chosen_image_tv);
-    //gpuSwitch = findViewById(R.id.switch_use_gpu);
 
-    //ImageView[] lowResImageViews = {lowResImageView1, lowResImageView2, lowResImageView3};
-
-    /* create bitmaps of all 3 images */
     /*
     AssetManager assetManager = getAssets();
-    try {
-      InputStream inputStream1 = assetManager.open(LR_IMG_1);
-      Bitmap bitmap1 = BitmapFactory.decodeStream(inputStream1);
-      lowResImageView1.setImageBitmap(bitmap1);
-
-      InputStream inputStream2 = assetManager.open(LR_IMG_2);
-      Bitmap bitmap2 = BitmapFactory.decodeStream(inputStream2);
-      lowResImageView2.setImageBitmap(bitmap2);
-
-      InputStream inputStream3 = assetManager.open(LR_IMG_3);
-      Bitmap bitmap3 = BitmapFactory.decodeStream(inputStream3);
-      lowResImageView3.setImageBitmap(bitmap3);
-    } catch (IOException e) {
-      Log.e(TAG, "Failed to open an low resolution image");
-    }
-     */
-
-    /* loading function to choose 1 amongst the 3 images */
-    /*
-    for (ImageView iv : lowResImageViews) {
-      setLRImageViewListener(iv);
-    }
-     */
+    InputStream inputStream1 = assetManager.open(LR_IMG_1);
+    Bitmap bitmap1 = BitmapFactory.decodeStream(inputStream1);
+    lowResImageView1.setImageBitmap(bitmap1);
+    */
 
     superResolutionButton.setOnClickListener(
         new View.OnClickListener() {
@@ -188,23 +145,6 @@ public class MainActivity extends AppCompatActivity {
                   .show();
               return;
             }
-            //Log.d("tag", "ABsolute Url of Image is " + selbitmap);
-
-            /* GPU execution checks */
-            /*
-            if (superResolutionNativeHandle == 0) {
-                superResolutionNativeHandle = initTFLiteInterpreter(gpuSwitch.isChecked());
-            } else if (useGPU != gpuSwitch.isChecked()) {
-              // We need to reinitialize interpreter when execution hardware is changed
-              deinit();
-              superResolutionNativeHandle = initTFLiteInterpreter(gpuSwitch.isChecked());
-            }
-            useGPU = gpuSwitch.isChecked();
-            if (superResolutionNativeHandle == 0) {
-              showToast("TFLite interpreter failed to create!");
-              return;
-            }
-             */
 
             int[] lowResRGB = new int[LR_IMAGE_HEIGHT * LR_IMAGE_WIDTH];
             selbitmap.getPixels(                     //selectedImage's bitmap to be put
@@ -222,13 +162,8 @@ public class MainActivity extends AppCompatActivity {
             /* the view parameters of the resulting image */
             //final LinearLayout resultLayout = findViewById(R.id.result_layout);
             final ImageView superResolutionImageView = findViewById(R.id.secondpreview);  //superResolutionImageView
-            final ImageView nativelyScaledImageView = findViewById(R.id.thirdpreview);
-            /*
-            final TextView superResolutionTextView = findViewById(R.id.super_resolution_tv);
-            final TextView nativelyScaledImageTextView =
-                findViewById(R.id.natively_scaled_image_tv);
+
             final TextView logTextView = findViewById(R.id.log_view);
-             */
 
             // Force refreshing the ImageView /* setting image view parameters from the superResRGB bitmap */
             //superResolutionImageView.setImageDrawable(null);  //setImageDrawable or setImageResource (with r.id)
@@ -236,9 +171,9 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap.createBitmap(
                     superResRGB, SR_IMAGE_WIDTH, SR_IMAGE_HEIGHT, Bitmap.Config.ARGB_8888);
             superResolutionImageView.setImageBitmap(srImgBitmap);  //or outputImage
-            nativelyScaledImageView.setImageBitmap(selbitmap);
+            //nativelyScaledImageView.setImageBitmap(selectedLRBitmap);
             //resultLayout.setVisibility(View.VISIBLE);
-            //logTextView.setText("Inference time: " + processingTimeMs + "ms");
+            logTextView.setText("Inference time: " + processingTimeMs + "ms");
 
             superResolutionImageView.setVisibility(View.VISIBLE);  //outputImage
           }
@@ -267,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
 
   @Override
-  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {  //what is this unused function ?
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == CAMERA_REQUEST_CODE) {
       if (resultCode == Activity.RESULT_OK) {
@@ -281,13 +216,9 @@ public class MainActivity extends AppCompatActivity {
         enhancebutton.setOnClickListener(new View.OnClickListener(){
           @Override
           public void onClick(View v) {
-
             Intent intEnhance = new Intent(MainActivity.this, Feature.class);
             startActivity(intEnhance);
-
-
           }
-
 
         });
          */
@@ -307,15 +238,12 @@ public class MainActivity extends AppCompatActivity {
         enhancebutton.setOnClickListener(new View.OnClickListener(){
           @Override
           public void onClick(View v) {
-
             Intent intEnhance = new Intent(MainActivity.this, Feature.class);
             startActivity(intEnhance);
-
           }
 
         });
          */
-
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "." + getFileExt(contentUri);
@@ -404,37 +332,6 @@ public class MainActivity extends AppCompatActivity {
     deinit();
   }
 
-  /* choose one image out of the three */
-  /*
-  private void setLRImageViewListener(ImageView iv) {
-    iv.setOnTouchListener(
-        new View.OnTouchListener() {
-          @Override
-          public boolean onTouch(View v, MotionEvent event) {
-            if (v.equals(lowResImageView1)) {
-              selectedLRBitmap = ((BitmapDrawable) lowResImageView1.getDrawable()).getBitmap();
-              selectedImageTextView.setText(
-                  "You are using low resolution image: 1 ("
-                      + getResources().getString(R.string.low_resolution_1)
-                      + ")");
-            } else if (v.equals(lowResImageView2)) {
-              selectedLRBitmap = ((BitmapDrawable) lowResImageView2.getDrawable()).getBitmap();
-              selectedImageTextView.setText(
-                  "You are using low resolution image: 2 ("
-                      + getResources().getString(R.string.low_resolution_2)
-                      + ")");
-            } else if (v.equals(lowResImageView3)) {
-              selectedLRBitmap = ((BitmapDrawable) lowResImageView3.getDrawable()).getBitmap();
-              selectedImageTextView.setText(
-                  "You are using low resolution image: 3 ("
-                      + getResources().getString(R.string.low_resolution_3)
-                      + ")");
-            }
-            return false;
-          }
-        });
-  }
-  */
 
   @WorkerThread
   public synchronized int[] doSuperResolution(int[] lowResRGB) {
