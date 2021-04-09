@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nikita.uplyft">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.tensorflow.lite.examples.superresolution">
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-sdk />
 
     <application
         android:allowBackup="true"
@@ -12,28 +12,78 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Final_Uplyfted"></activity>
-        <activity android:name=".Feature" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.SuperResolution">
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ChooseActivity"/>
+        <activity android:name=".MainActivity">
+        <!--<intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>-->
         </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="net.smallacademy.android.fileprovider"
+            android:authorities="org.tensorflow.lite.examples.android.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
         </provider>
+
+        <activity
+            android:name=".photoEditor"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name=".Image_Display_Activity"
+            android:parentActivityName=".photoEditor"
+            android:launchMode="singleTop"
+            android:theme="@style/ImageDisplayTheme"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name=".Add_Text_Activity"
+            android:parentActivityName=".Image_Display_Activity"
+            android:theme="@style/ImageDisplayTheme"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".Draw_Activity"
+            android:parentActivityName=".Image_Display_Activity"
+            android:theme="@style/ImageDisplayTheme"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".Emoji_Activity"
+            android:parentActivityName=".Image_Display_Activity"
+            android:theme="@style/ImageDisplayTheme"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".Rotate_Crop_Activity"
+            android:parentActivityName=".Image_Display_Activity"
+            android:theme="@style/RotCropTheme"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".Tune_Activity"
+            android:parentActivityName=".Image_Display_Activity"
+            android:theme="@style/ImageDisplayTheme"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

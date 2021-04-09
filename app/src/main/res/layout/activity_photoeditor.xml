@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background= "@drawable/bg"
+    tools:context="org.tensorflow.lite.examples.superresolution.photoEditor">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#EC8D8B"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tfl2_logo_dark1" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFab"
+        android:layout_width="157dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="10dp"
+        android:src="@mipmap/ic_add_a_photo_white_48dp"
+
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/UploadText"
+        android:layout_width="397dp"
+        android:layout_height="175dp"
+        android:text="Upload/Capture Photo"
+        android:textAlignment="center"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/addFab"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

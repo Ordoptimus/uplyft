@@ -1,6 +1,32 @@
 <resources>
-    <string name="app_name">Uplyft</string>
+    <string name="app_name" translatable="false">Uplyft</string>
+    <string name="choose_image" translatable="false">Choose a low resolution image below:</string>
+    <string name="low_resolution_1" translatable="false">gyronny flag</string>
+    <string name="low_resolution_2" translatable="false">plane</string>
+    <string name="low_resolution_3" translatable="false">cat ear</string>
+    <string name="low_resolution_4" translatable="false">insect head</string>
+    <string name="low_resolution_5" translatable="false">lights</string>
+    <string name="low_resolution_6" translatable="false">radio dish</string>
+    <string name="low_resolution_7" translatable="false">insignia</string>
+    <string name="low_resolution_8" translatable="false">mothership</string>
+    <string name="low_resolution_9" translatable="false">red flag</string>
+    <string name="chosen_image_text" translatable="false">You are using low resolution image: None.</string>
+    <string name="simple_explanation" translatable="false">(Clicking UPSAMPLE button below will use TFLite to generate a corresponding high resolution image based on your chosen image.)</string>
+    <string name="super_resolution_image" translatable="false">Super resolution image:</string>
+    <string name="natively_scaled_image" translatable="false">Android ImageView-scaled image:</string>
+    <string name="upsample" translatable="false">ENHANCE</string>
+    <string name="gpu" translatable="false">GPU</string>
+
     <string name="enhancebutton">Enhance</string>
     <string name="recolour_button">ReColourise</string>
     <string name="superres_button">Super-Res</string>
+
+    <string name="add_text">Add Text</string>
+    <string name="draw_over">Draw</string>
+    <string name="add_emoji">Add Emoji</string>
+    <string name="rotate_crop">Rotate/Crop</string>
+    <string name="transition_image">transition:IMAGE</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="rotate_right">Rotate Right</string>
+    <string name="rotate_left">Rotate Left</string>
 </resources>
